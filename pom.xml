@@ -8,6 +8,7 @@
         <version>3.4.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
+
     <groupId>guru.springframework</groupId>
     <artifactId>spring-6-webapp</artifactId>
     <version>0.0.1-SNAPSHOT</version>
@@ -37,6 +38,10 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -47,6 +52,7 @@
             </plugin>
         </plugins>
     </build>
+
     <repositories>
         <repository>
             <id>spring-milestones</id>
@@ -57,6 +63,7 @@
             </snapshots>
         </repository>
     </repositories>
+
     <pluginRepositories>
         <pluginRepository>
             <id>spring-milestones</id>
