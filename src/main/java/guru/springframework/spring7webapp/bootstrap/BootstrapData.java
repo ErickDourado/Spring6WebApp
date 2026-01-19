@@ -54,22 +54,19 @@ public class BootstrapData implements CommandLineRunner {
         dddSaved.getAuthors().add(ericSaved);
         noEjbSaved.getAuthors().add(rodSaved);
 
-//      Não é necessário salvar novamente, o JPA/Hibernate faz isso automaticamente
-//      Mas talvez seja bom manter redundância para uma outra pessoa que leia o código entender melhor
-
-//      authorRepository.save(ericSaved);
-//      authorRepository.save(rodSaved);
-
         Publisher publisher = new Publisher();
         publisher.setPublisherName("Publisher name");
         publisher.setAddress("123 Main St");
         publisher.setCity("Springfield");
         publisher.setState("Sao Paulo");
         publisher.setZipCode("01587682");
-
         Publisher savedPublisher = publisherRepository.save(publisher);
+
         dddSaved.setPublisher(savedPublisher);
         noEjbSaved.setPublisher(savedPublisher);
+
+        authorRepository.save(ericSaved);
+        authorRepository.save(rodSaved);
 
         bookRepository.save(dddSaved);
         bookRepository.save(noEjbSaved);
