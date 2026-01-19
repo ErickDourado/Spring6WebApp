@@ -5,9 +5,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-/**
- * Created by jt, Spring Framework Guru.
- */
 @Entity
 public class Book {
 
@@ -40,4 +37,5 @@ public class Book {
     public void setIsbn(String isbn) {
         this.isbn = isbn;
     }
+
 }
