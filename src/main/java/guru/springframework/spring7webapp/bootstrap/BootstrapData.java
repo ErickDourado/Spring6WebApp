@@ -1,9 +1,9 @@
-package guru.springframework.spring6webapp.bootstrap;
+package guru.springframework.spring7webapp.bootstrap;
 
-import guru.springframework.spring6webapp.domain.Author;
-import guru.springframework.spring6webapp.domain.Book;
-import guru.springframework.spring6webapp.repositories.AuthorRepository;
-import guru.springframework.spring6webapp.repositories.BookRepository;
+import guru.springframework.spring7webapp.domain.Author;
+import guru.springframework.spring7webapp.domain.Book;
+import guru.springframework.spring7webapp.repositories.AuthorRepository;
+import guru.springframework.spring7webapp.repositories.BookRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -45,8 +45,11 @@ public class BootstrapData implements CommandLineRunner {
         ericSaved.getBooks().add(dddSaved);
         rodSaved.getBooks().add(noEjbSaved);
 
-        authorRepository.save(ericSaved);
-        authorRepository.save(rodSaved);
+//      Não é necessário salvar novamente, o JPA/Hibernate faz isso automaticamente
+//      Mas talvez seja bom manter redundância para uma outra pessoa que leia o código entender melhor
+
+//      authorRepository.save(ericSaved);
+//      authorRepository.save(rodSaved);
 
         System.out.println("In Bootstrap");
         System.out.println("Author Count: " + authorRepository.count());
