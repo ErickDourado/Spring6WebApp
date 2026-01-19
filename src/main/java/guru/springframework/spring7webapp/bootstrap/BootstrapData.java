@@ -1,11 +1,11 @@
-package guru.springframework.spring6webapp.bootstrap;
+package guru.springframework.spring7webapp.bootstrap;
 
-import guru.springframework.spring6webapp.domain.Author;
-import guru.springframework.spring6webapp.domain.Book;
-import guru.springframework.spring6webapp.domain.Publisher;
-import guru.springframework.spring6webapp.repositories.AuthorRepository;
-import guru.springframework.spring6webapp.repositories.BookRepository;
-import guru.springframework.spring6webapp.repositories.PublisherRepository;
+import guru.springframework.spring7webapp.domain.Author;
+import guru.springframework.spring7webapp.domain.Book;
+import guru.springframework.spring7webapp.domain.Publisher;
+import guru.springframework.spring7webapp.repositories.AuthorRepository;
+import guru.springframework.spring7webapp.repositories.BookRepository;
+import guru.springframework.spring7webapp.repositories.PublisherRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -54,8 +54,11 @@ public class BootstrapData implements CommandLineRunner {
         dddSaved.getAuthors().add(ericSaved);
         noEjbSaved.getAuthors().add(rodSaved);
 
-        authorRepository.save(ericSaved);
-        authorRepository.save(rodSaved);
+//      Não é necessário salvar novamente, o JPA/Hibernate faz isso automaticamente
+//      Mas talvez seja bom manter redundância para uma outra pessoa que leia o código entender melhor
+
+//      authorRepository.save(ericSaved);
+//      authorRepository.save(rodSaved);
 
         Publisher publisher = new Publisher();
         publisher.setPublisherName("Publisher name");
