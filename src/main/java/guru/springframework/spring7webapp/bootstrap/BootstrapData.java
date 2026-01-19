@@ -1,11 +1,11 @@
-package guru.springframework.spring6webapp.bootstrap;
+package guru.springframework.spring7webapp.bootstrap;
 
-import guru.springframework.spring6webapp.domain.Author;
-import guru.springframework.spring6webapp.domain.Book;
-import guru.springframework.spring6webapp.domain.Publisher;
-import guru.springframework.spring6webapp.repositories.AuthorRepository;
-import guru.springframework.spring6webapp.repositories.BookRepository;
-import guru.springframework.spring6webapp.repositories.PublisherRepository;
+import guru.springframework.spring7webapp.domain.Author;
+import guru.springframework.spring7webapp.domain.Book;
+import guru.springframework.spring7webapp.domain.Publisher;
+import guru.springframework.spring7webapp.repositories.AuthorRepository;
+import guru.springframework.spring7webapp.repositories.BookRepository;
+import guru.springframework.spring7webapp.repositories.PublisherRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -54,19 +54,19 @@ public class BootstrapData implements CommandLineRunner {
         dddSaved.getAuthors().add(ericSaved);
         noEjbSaved.getAuthors().add(rodSaved);
 
-        authorRepository.save(ericSaved);
-        authorRepository.save(rodSaved);
-
         Publisher publisher = new Publisher();
         publisher.setPublisherName("My Publisher");
         publisher.setAddress("123 Main St");
         publisher.setCity("Springfield");
         publisher.setState("Sao Paulo");
         publisher.setZipCode("01587682");
-
         Publisher savedPublisher = publisherRepository.save(publisher);
+
         dddSaved.setPublisher(savedPublisher);
         noEjbSaved.setPublisher(savedPublisher);
+
+        authorRepository.save(ericSaved);
+        authorRepository.save(rodSaved);
 
         bookRepository.save(dddSaved);
         bookRepository.save(noEjbSaved);
